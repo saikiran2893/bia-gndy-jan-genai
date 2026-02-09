@@ -1,0 +1,625 @@
+{
+  "name": "Understanding Nodes in n8n",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "962cb3f1-4315-4f3e-bd24-3f85ccc7f6f6",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        2656
+      ]
+    },
+    {
+      "parameters": {
+        "path": "4f7f6cdd-04da-46ea-9347-09f26853f47a",
+        "options": {}
+      },
+      "id": "da0ad564-571d-43ca-9546-782f9f4c38e4",
+      "name": "Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 1,
+      "position": [
+        16,
+        2656
+      ],
+      "webhookId": "4f7f6cdd-04da-46ea-9347-09f26853f47a"
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "id": "143a7a2f-b4f3-4db5-bdb6-426358e5781a",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        2656
+      ],
+      "webhookId": "f725c920-d226-4352-9cd8-4795e8d4f223"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "id": "592a445a-8a8d-48fe-a0d8-3e29e08c0e74",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        2864
+      ]
+    },
+    {
+      "parameters": {
+        "path": "77b4cd57-43e5-497f-89f9-ff9f98419bc8",
+        "options": {}
+      },
+      "id": "1fd55bdc-e605-4a89-abf8-48a58dec6002",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        16,
+        2864
+      ],
+      "webhookId": "77b4cd57-43e5-497f-89f9-ff9f98419bc8"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "id": "f1d48c31-99d6-41df-a45a-9ff48802efc3",
+      "name": "Gmail Trigger",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        2864
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "cf13e5d1-73e9-4b97-9455-861acba7eae3",
+      "name": "Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        16,
+        3072
+      ]
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "baseId": {
+          "__rl": true,
+          "mode": "url",
+          "value": ""
+        },
+        "tableId": {
+          "__rl": true,
+          "mode": "url",
+          "value": ""
+        },
+        "additionalFields": {}
+      },
+      "id": "3a5b142f-5015-43ca-8f0e-6fdb35f63f3a",
+      "name": "Airtable Trigger",
+      "type": "n8n-nodes-base.airtableTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        3072
+      ]
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "id": "d28c97a6-f35b-4060-a6f8-d555cb7b91b6",
+      "name": "Get Gmail Message",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 1,
+      "position": [
+        656,
+        2672
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "eff38d07-98d5-4333-93fd-398302c0768c",
+      "name": "Search Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        880,
+        3056
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "00ebe073-ab92-4d3b-893a-62cc95ab9046",
+      "name": "Create Google Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        656,
+        3056
+      ]
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "id": "40a33b40-5320-49b6-819a-1627d8535cb6",
+      "name": "Send Gmail Message",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 1,
+      "position": [
+        1088,
+        2672
+      ]
+    },
+    {
+      "parameters": {
+        "pageId": {
+          "__rl": true,
+          "mode": "url",
+          "value": ""
+        },
+        "options": {}
+      },
+      "id": "53a4f86a-8e2f-4ce7-94e7-482477c95c8f",
+      "name": "Upsert Record",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [
+        880,
+        2864
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "48e3f38e-afe0-4867-9ed2-8965f5cd2c71",
+      "name": "Update Google Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        1088,
+        3056
+      ]
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "id": "ee9a8fdd-ddec-4ad1-9951-12b3e23b5f5d",
+      "name": "Add Gmail Label",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 1,
+      "position": [
+        880,
+        2672
+      ]
+    },
+    {
+      "parameters": {
+        "pageId": {
+          "__rl": true,
+          "mode": "url",
+          "value": ""
+        },
+        "options": {}
+      },
+      "id": "742e9609-0c4c-46af-9761-e39e25d0a56c",
+      "name": "Delete Notion Record",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [
+        656,
+        2864
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "fe0d1104-e915-45f9-a69d-22bc465479ff",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [
+        1728,
+        2672
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "d1974881-6ee4-4ee2-924a-7e3080544acb",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        2672
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "af1395fb-872a-499a-a8d4-2e264d75af86",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1936,
+        2672
+      ]
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "06f40cea-d6df-41d6-9b2e-fed2f42f3ad4",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        2880
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ac14df07-4837-45e1-8aa2-7d7ca08197dd",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1728,
+        2880
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "4b396165-af3e-4964-a0cd-f3b7a47cc835",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        1952,
+        2880
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "a968da83-0085-448e-8e62-72e4a6c36673",
+      "name": "Set Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        3056
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0c0ec2f7-0c8c-4d7c-a5a6-6d04a9aae3ed",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        1728,
+        3040
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b5bcf7de-94c9-4169-a9ca-b35b2e4bbab5",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2416,
+        2672
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "119a4f93-73aa-486b-af41-4e53fca8da33",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        2416,
+        2864
+      ]
+    },
+    {
+      "parameters": {
+        "path": "e1880ddd-8d84-45fe-ac2a-08238730a68a",
+        "options": {}
+      },
+      "id": "57986ad8-9ab0-4c07-baaf-9d646d57102b",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        2416,
+        3056
+      ],
+      "webhookId": "e1880ddd-8d84-45fe-ac2a-08238730a68a"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -224,
+        3056
+      ],
+      "id": "abac2531-3aba-4bef-a2df-6a38b02490e1",
+      "name": "When chat message received",
+      "webhookId": "0f9aef3c-0b93-4b82-8b22-39f1f0cf9b41"
+    },
+    {
+      "parameters": {
+        "resource": "block",
+        "operation": "getAll",
+        "blockId": {
+          "__rl": true,
+          "mode": "url",
+          "value": ""
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1088,
+        2864
+      ],
+      "id": "7c7d762b-85cc-4c73-b1e0-6f78a53bd4a3",
+      "name": "Get many child blocks"
+    },
+    {
+      "parameters": {
+        "content": "## Trigger Node\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 700,
+        "width": 780,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        2544
+      ],
+      "id": "afba6a9c-dc4d-4f76-b0e0-083910c6e4ce",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Action Node\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 700,
+        "width": 780,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        560,
+        2544
+      ],
+      "id": "bfa90fbb-3067-4ebc-bdfd-1fc1ed13901f",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1952,
+        3056
+      ],
+      "id": "ac111cec-402e-490c-8a79-14990fb65585",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "content": "## Action Node\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 700,
+        "width": 780,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1456,
+        2544
+      ],
+      "id": "72d155c7-b778-4e51-99ae-14a17e6f482e",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        2928,
+        2640
+      ],
+      "id": "412669c0-7a7b-4967-ad41-4b173488d53a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.sentimentAnalysis",
+      "typeVersion": 1.1,
+      "position": [
+        2928,
+        2832
+      ],
+      "id": "af9a89fd-aeea-49ef-9b17-150cae4a5a4d",
+      "name": "Sentiment Analysis"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1.1,
+      "position": [
+        2928,
+        3040
+      ],
+      "id": "6f851e46-a97c-4f47-9f72-363f1eaf31af",
+      "name": "Text Classifier"
+    },
+    {
+      "parameters": {
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        3328,
+        2640
+      ],
+      "id": "fe859cff-aa63-44c5-8ee3-407c601d46bc",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainRetrievalQa",
+      "typeVersion": 1.6,
+      "position": [
+        3328,
+        2832
+      ],
+      "id": "d6e94152-e9ee-4ff2-8cbe-d77e12191f96",
+      "name": "Question and Answer Chain"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsHuggingFaceInference",
+      "typeVersion": 1,
+      "position": [
+        3376,
+        3040
+      ],
+      "id": "4bc3f970-cbbe-42e8-ab23-3cee04388c89",
+      "name": "Embeddings HuggingFace Inference"
+    },
+    {
+      "parameters": {
+        "content": "## Action Node\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 700,
+        "width": 780,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2864,
+        2512
+      ],
+      "id": "039a1a3b-716d-4e67-99dd-e43e8dc81105",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Code Node\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 720,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2336,
+        2512
+      ],
+      "typeVersion": 1,
+      "id": "de961167-c33b-4452-9578-0c10175f3e7a",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "# 📘 Understanding Nodes in n8n\n\nThis workflow is a **guided playground** to understand the different types of nodes available in n8n.  \nIt demonstrates how **Triggers**, **Actions**, **Logic/Control**, **Integrations**, and **AI-powered nodes** can work together inside one canvas.\n\n---\n\n## 🏗 Workflow Structure\n\n1. **Trigger Nodes** (how workflows start)\n   - **Manual Trigger** → For quick testing inside the editor.  \n   - **Schedule Trigger** → Runs workflows on defined intervals.  \n   - **Webhook Trigger** → Starts a workflow when external systems send data.  \n   - **Form Trigger** → Collects user inputs via a form.  \n   - **Telegram Trigger / Gmail Trigger / Airtable Trigger** → Connects external services as event-based triggers.  \n   - **Execute Workflow Trigger** → Lets another workflow call this one.  \n   - **Chat Trigger (LangChain)** → Starts a workflow when a chat message is received.\n\n2. **Action Nodes** (do something with data)\n   - **Send Gmail Message / Get Gmail Message / Add Gmail Label** → Manage Gmail communications.  \n   - **Google Sheets (Create / Update / Search)** → Store and process structured data.  \n   - **Notion (Upsert / Delete / Get Blocks)** → Manage Notion workspace data.  \n   - **HTTP Request** → Connect to any API not natively supported.  \n   - **Telegram (send)** → Communicate with Telegram users.  \n   - **Airtable** → Manage Airtable records.\n\n3. **Logic & Data Processing Nodes**\n   - **If / Switch / Filter** → Add conditional logic.  \n   - **Merge / Split In Batches / Split Out** → Handle batch processing and dataset merging.  \n   - **Aggregate** → Summarize or combine fields (sums, averages, counts).  \n   - **Set Fields** → Define or overwrite specific fields in an item.  \n   - **Date & Time** → Format and manipulate date/time values.  \n   - **Code** → Write custom JavaScript for advanced data processing.\n\n4. **AI / LangChain Nodes**\n   - **AI Agent** → An intelligent decision-maker that chooses the right tool.  \n   - **Sentiment Analysis / Text Classifier** → NLP-based classification of text.  \n   - **Basic LLM Chain** → Run LLMs with a structured prompt → response chain.  \n   - **Question & Answer Chain** → Retrieve context and answer user queries.  \n   - **Embeddings (HuggingFace)** → Convert text to vector embeddings for semantic search.  \n\n---\n\n## 🔑 Learning Purpose\n\n- **Triggers** show how workflows start automatically or manually.  \n- **Actions** show how you can send/receive data with services like Gmail, Google Sheets, Notion, Airtable.  \n- **Logic Nodes** explain how to branch and manipulate data inside workflows.  \n- **AI Nodes** highlight n8n’s growing integration with LLMs and LangChain—making workflows “intelligent.”  \n\nThis workflow isn’t built to solve one business case—it’s a **reference canvas** that helps you explore what each node type does and how you can combine them.\n\n---\n\n## 🛠 Practical Tips\n\n- Start with **Manual Trigger** while testing.  \n- Use **Set / Date & Time / Filter** nodes often for data preparation.  \n- Keep external connections (like Gmail, Telegram, Notion) authenticated in **Credentials**.  \n- When testing **Webhook Trigger**, make sure to use **Test URL** first.  \n- For **AI Nodes**, always add context in the system prompt and limit output to keep executions predictable.  \n- Sticky Notes are included in the canvas so you can annotate each category of node.\n\n---\n\n## 🎯 Best Practices\n\n- **Name nodes clearly** (verb + object → e.g., `Send Gmail`, `Search Sheet`, `Check Condition`).  \n- **Group nodes visually** by category (Triggers, Actions, Logic).  \n- **Use Sticky Notes** to explain data flow, so collaborators understand at a glance.  \n- **Export** this workflow JSON to reuse it as a **learning template** for onboarding new team members.  \n\n---\n",
+        "height": 2080,
+        "width": 3440,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "25df185c-e78d-44a3-8829-aaa6319b0cc9",
+      "name": "Sticky Note5"
+    }
+  ],
+  "pinData": {},
+  "connections": {},
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "cd16766b-54ba-4c0f-bc68-07707024f77a",
+  "meta": {
+    "instanceId": "f27d977a5103d2167b74098e42b336cc47f60975bebc5d8f360d985789817664"
+  },
+  "id": "9Z-uynrAAVUaIauKnjX6v",
+  "tags": []
+}

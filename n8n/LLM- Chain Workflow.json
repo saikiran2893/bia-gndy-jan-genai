@@ -1,0 +1,94 @@
+{
+  "name": "LLM- Chain Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "34ed1d59-3bc0-438d-ac46-7345fdaa9f45",
+      "name": "When chat message received",
+      "webhookId": "7fb570ab-da93-4805-a3f6-b40ed8b142c0"
+    },
+    {
+      "parameters": {
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        384,
+        32
+      ],
+      "id": "0273bcd9-2cd7-4dfe-9bca-ba6760f4ae26",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        320,
+        240
+      ],
+      "id": "b2472551-c260-4735-a47e-76f8f4fd2bdb",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "UusoF7gUERrd3O7w",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "5ecdf1b6-36f6-4666-b05e-4519da60f640",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f27d977a5103d2167b74098e42b336cc47f60975bebc5d8f360d985789817664"
+  },
+  "id": "_ILHISsbgm6N4SYsbMCW3",
+  "tags": []
+}

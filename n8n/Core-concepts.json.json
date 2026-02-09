@@ -1,0 +1,35 @@
+{
+  "name": "Core-concepts.json",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "##  Core Concepts & Terminology (n8n)\n\nThe **core concepts** of n8n are the foundation to understand before building powerful automations.  \nThey cover: **workflows, nodes, triggers, actions, data flow, and JSON basics**.\n\nThink of this as the “grammar” of automation — once you learn it, you can form any sentence (workflow).\n\n---\n\n### 🧭 Workflows — The Big Picture\n\nA **workflow** is like a **recipe** or **project plan**.  \nIt’s the entire set of instructions telling n8n *what to do, in which order, and under what conditions.*\n\n- **Analogy (Professional):** A “Lead Management” process — trigger when a form is submitted, enrich with API data, send welcome email, then add to CRM.  \n- **Analogy (Personal):** Your “Morning Routine” — trigger when you wake up, then brush teeth → make coffee → check calendar.\n\n✅ **Key Idea:** A workflow = one complete automation.\n\n---\n\n### 🧩 Nodes — The Building Blocks\n\nA **node** is a **step** in your workflow. Each node has a specific job.\n\n- **Analogy:** In a factory, each worker is a node — one paints, one checks quality, one packs the box.  \n- **Professional Example:** Gmail Send node → Sends a thank-you email.  \n- **Personal Example:** Calendar Create node → Adds “Dinner with friend” at 8pm.\n\n✅ **Naming convention:** Always use *Verb + Object* (e.g., “Send Email”, “Fetch Orders”).\n\n---\n\n### 🔔 Triggers — How Workflows Start\n\nTriggers tell n8n **when** to run your workflow.\n\n- **Manual Trigger:** Like pressing the *play* button when testing.  \n- **Schedule Trigger:** Like an alarm clock — runs at specific times.  \n- **Webhook Trigger:** Like a doorbell — an external service “rings” to start the workflow.  \n- **App Triggers:** Gmail (new email), Telegram (new message), Airtable (new record).  \n\n✅ **Analogy:** A trigger is the “doorbell” that sets the workflow in motion.\n\n---\n\n### ⚡ Actions — Doing the Work\n\nActions are the **tasks** that happen after a trigger fires.\n\n- **Professional Example:** After a form submission, send a Slack alert.  \n- **Personal Example:** After a Telegram message, check Google Calendar and reply with availability.  \n\n✅ **Analogy:** Trigger is the alarm clock ringing, action is you **making the coffee**.\n\n---\n\n### 🔄 Data Flow — The Fuel of Workflows\n\nData moves through nodes like a **relay race baton** or a **parcel on a conveyor belt**.  \nEach node receives input data (usually JSON), processes it, and passes output to the next.\n\nExample JSON item:\n```json\n{\n  \"name\": \"Priya\",\n  \"email\": \"priya@acme.com\"\n}\n```\n\nCommon expressions:\n- `{{$json[\"email\"]}}` → current item’s email  \n- `{{$node[\"Lookup\"].json[\"id\"]}}` → fetch ID from a previous node  \n\n✅ **Analogy:** Data is the **baton** passed between runners (nodes).\n\n---\n\n### 📜 JSON Basics — The Blueprint\n\nWorkflows are stored and shared as **JSON files** — the blueprint of your automation.\n\n- **Analogy:** A blueprint for a house, or a recipe card with every detail written down.  \n- **Use Case:** Export workflows to share with teammates, import ready-made workflows from templates, or debug structure.  \n\nExample simplified workflow JSON:\n```json\n{\n  \"name\": \"My Workflow\",\n  \"nodes\": [\n    { \"name\": \"Webhook Trigger\", \"type\": \"webhook\" },\n    { \"name\": \"Gmail Send\", \"type\": \"gmail\" }\n  ],\n  \"connections\": {\n    \"Webhook Trigger\": [\"Gmail Send\"]\n  }\n}\n```\n\n---\n\n### 🧠 Analogies Recap\n\n- **Workflow = Recipe / Project Plan**  \n- **Node = Worker in a factory / Step in a recipe**  \n- **Trigger = Doorbell or Alarm Clock**  \n- **Action = Cooking Step / Sending an Email**  \n- **Data Flow = Relay Baton / Parcel Flow**  \n- **JSON = Blueprint or Recipe Card**\n\n---\n\n### ✅ Summary Table\n\n| Concept     | What it is                        | Analogy                        | Example (Professional)                | Example (Personal)                   |\n|-------------|-----------------------------------|--------------------------------|---------------------------------------|--------------------------------------|\n| Workflow    | Complete automation               | Recipe / Project plan          | Lead workflow: form → enrich → email  | Morning routine: wake up → coffee     |\n| Node        | Single step                       | Worker in factory / Recipe step| Gmail Send → thank-you email          | Calendar Create → dinner event        |\n| Trigger     | Workflow starter                  | Doorbell / Alarm clock         | Webhook: new form submission          | Telegram Trigger: friend sends msg    |\n| Action      | Work performed after trigger      | Cooking step                   | Send Slack alert after form fill       | Reply to Telegram with your schedule |\n| Data Flow   | Info moving between nodes         | Baton in relay / Parcel flow   | Customer ID → fetch details            | “7pm movie” → create calendar event   |\n| JSON        | Workflow blueprint format         | Blueprint / Recipe card        | Export workflow as JSON                | Import a ready-made workflow         |\n\n\n",
+        "height": 2912,
+        "width": 1376
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -192,
+        -48
+      ],
+      "typeVersion": 1,
+      "id": "c837a8b2-fe50-475b-bb04-2f7ba9b2bb2e",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {},
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "232d628d-73ed-4d05-86a4-f757b1009b06",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f27d977a5103d2167b74098e42b336cc47f60975bebc5d8f360d985789817664"
+  },
+  "id": "2bFa9Z61XEGqMON7NF9Ow",
+  "tags": []
+}

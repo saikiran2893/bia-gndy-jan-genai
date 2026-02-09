@@ -1,0 +1,133 @@
+{
+  "name": "my-first-workflow-biajan2026",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Test Form",
+        "formDescription": "A form to test the workflow",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "First Name"
+            },
+            {
+              "fieldLabel": "Last Name"
+            },
+            {
+              "fieldLabel": "Email"
+            },
+            {
+              "fieldLabel": "Mobile Number",
+              "fieldType": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        -48,
+        0
+      ],
+      "id": "8860219a-b839-4552-9c83-b4dea63ad6e3",
+      "name": "On form submission",
+      "webhookId": "d347c306-f3e5-4542-aad0-0d1c778daf3e"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=I want you to write a good email that needs to send it to the below user and make it more professional.\n\nfirst name-  {{ $json[\"First Name\"] }}\nlast name - {{ $json['Last Name'] }}\nemail - {{ $json['Email'] }}\nmobile number -  {{ $json['Mobile Number']}}\n\nBased on the above information , please send very good greeting email to the user. Please add my company details which is provided below.\n\nCompany Name - BIA Analytics\nName - John\nPhone number - 987654321\nEmail - qwerty@123.com"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "6cc9720d-1a41-41d4-9977-a43f31624af9",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "UusoF7gUERrd3O7w",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('On form submission').item.json.Email }}",
+        "subject": "Welcome to BIA!",
+        "emailType": "text",
+        "message": "={{ $('Message a model').item.json.output[0].content[0].text }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        864,
+        0
+      ],
+      "id": "39541b69-7d4d-423c-9bbe-5377a8e761ea",
+      "name": "Send a message",
+      "webhookId": "e4c4e9c9-fdbe-4f2f-88b2-3f9372deabb3",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "r6F4vPm9UmPbVxa0",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "7be07882-b040-475f-8860-7445cb41bf65",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f27d977a5103d2167b74098e42b336cc47f60975bebc5d8f360d985789817664"
+  },
+  "id": "ijjtCEzTXwTqdCNKwEvS3",
+  "tags": []
+}
