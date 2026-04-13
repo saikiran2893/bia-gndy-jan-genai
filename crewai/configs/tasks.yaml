@@ -1,0 +1,29 @@
+
+research_task:
+    description:  >
+        Research the top 5 trends in {topic} for 2025.
+                     
+        For Each trend, provide:
+        1. Trend Name (clear, concise, and descriptive)
+        2. What it is ( 2-3 lines of explnantion)
+        3. why it matters ( 2-3 lines of explanation)
+        4. one real life example (company, product or project or inittiatives)   
+        Focus on trends that have clear eveidence on adoption , not just the speculations
+    
+    expected_output: >
+        A sturcture report in markdown format with exactly 5 sections, one per trend. Each trend has header
+        then why/what/examples as subsection and Total length shoudl be 600-800 words
+
+
+writing_task:
+    description: >
+        Write an article based on the research report on {topic}
+        Your report should specify:
+        1. An Executive summary(3- 4 lines)
+        2. A brief introduction to the {topic} and its importance
+        3. 5 Key trends in {topic}
+        4. A conclusion with 2-3 actionable recommendations.
+
+    expected_output: >
+        A well-structured article in markdown format with a clear flow and engaging writing style. 
+        The article should be between 800-1000 words. Must be ready to publish
