@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>SSE Streaming</h1>
+
+<div id="output"></div>
+
+<script>
+
+const evtSource = new EventSource(
+    "http://localhost:8000/api/v1/stream-tasks/?api_key=my-secret-key-123"
+);
+
+evtSource.onmessage = function(event) {
+
+    console.log(event.data);
+
+    document.getElementById("output").innerHTML +=
+        `<p>${event.data}</p>`;
+};
+
+</script>
+
+</body>
+</html>
