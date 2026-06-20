@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LiveKit Voicebot UI</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f7f9fc;
+           display:flex; flex-direction:column; align-items:center;
+           padding:30px; color:#333; }
+    h2   { color:#2c3e50; margin-bottom:20px; }
+    input  { padding:8px; font-size:14px; margin-left:5px;
+             border-radius:5px; border:1px solid #ccc; }
+    button { background:#3498db; color:#fff; padding:10px 20px;
+             margin:10px 5px; border:none; border-radius:5px;
+             font-size:15px; cursor:pointer; }
+    button:disabled { background:#b0bec5; cursor:not-allowed; }
+    #status      { margin-top:20px; font-weight:bold; min-height:20px; }
+    #voicebotGif { margin-top:20px; max-width:280px;
+                   border-radius:10px; display:none; }
+    #audio-area  { margin-top:20px; }
+  </style>
+</head>
+<body>
+  <h2>&#127897;&#65039; Talk to Your Voice Agent</h2>
+
+  <!-- Step 1: User enters their name -->
+  <label>Your Name: <input id="name" value="guest" /></label>
+
+  <!-- Step 2: Join / Leave buttons -->
+  <div>
+    <button id="joinBtn">Join</button>
+    <button id="leaveBtn" disabled>Leave</button>
+  </div>
+
+  <!-- Step 3: Avatar GIF (hidden until joined) -->
+  <img id="voicebotGif" src="assets/AssistantVoice.gif" alt="Voice Bot">
+
+  <!-- Step 4: Status text -->
+  <div id="status"></div>
+
+  <!-- Step 5: Audio element injected here by JS -->
+  <div id="audio-area"></div>
+
+  <!-- LiveKit JS SDK from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.umd.min.js"></script>
+
+  <script>
+    // ── CONFIGURATION ────────────────────────────────────────
+    const TOKEN_API_URL  = "http://localhost:5001/getToken"; // your Flask API
+    const LIVEKIT_WS_URL = "wss://sample-project-oxsl2gez.livekit.cloud"; // from .env
+
+    // ── DESTRUCTURE SDK objects ───────────────────────────────
+    const { Room, RoomEvent, Track } = window.LivekitClient;
+    let room = null;
+
+    // ── DOM references ────────────────────────────────────────
+    const joinBtn      = document.getElementById("joinBtn");
+    const leaveBtn     = document.getElementById("leaveBtn");
+    const statusDiv    = document.getElementById("status");
+    const nameInput    = document.getElementById("name");
+    const audioArea    = document.getElementById("audio-area");
+    const voicebotGif  = document.getElementById("voicebotGif");
+
+    // ── JOIN button clicked ───────────────────────────────────
+    joinBtn.onclick = async () => {
+      joinBtn.disabled = true;
+      statusDiv.innerText = "Requesting token...";
+      const name = nameInput.value.trim() || "guest";
+
+      // Step A: Get signed token from our backend
+      let token, roomName;
+      try {
+        const resp = await fetch(`${TOKEN_API_URL}?name=${encodeURIComponent(name)}`);
+        const data = await resp.json();
+        token    = data.token;
+        roomName = data.room;
+      } catch (e) {
+        statusDiv.innerText = "Could not get token from API";
+        joinBtn.disabled = false;
+        return;
+      }
+
+      statusDiv.innerText = `Joining room: ${roomName} ...`;
+
+      // Step B: Create Room object and register event listeners
+      room = new Room();
+
+      // Event: agent audio track arrives → attach it to play automatically
+      room.on(RoomEvent.TrackSubscribed, (track) => {
+        if (track.kind === Track.Kind.Audio) {
+          const audioEl = track.attach(); // creates <audio> element
+          audioArea.appendChild(audioEl); // add to DOM → audio plays
+        }
+      });
+
+      // Event: disconnected → reset UI, hide avatar
+      room.on(RoomEvent.Disconnected, () => {
+        statusDiv.innerText = "Disconnected.";
+        leaveBtn.disabled   = true;
+        joinBtn.disabled    = false;
+        audioArea.innerHTML = "";
+        voicebotGif.style.display = "none";
+      });
+
+      // Step C: Connect to LiveKit Cloud
+      try {
+        await room.connect(LIVEKIT_WS_URL, token);
+        await room.localParticipant.setMicrophoneEnabled(true); // turn on mic
+        statusDiv.innerText = `Connected to ${roomName}. Start speaking!`;
+        leaveBtn.disabled          = false;
+        voicebotGif.style.display  = "block"; // show avatar GIF
+      } catch (e) {
+        statusDiv.innerText = "Could not connect: " + e;
+        joinBtn.disabled    = false;
+      }
+    };
+
+    // ── LEAVE button clicked ──────────────────────────────────
+    leaveBtn.onclick = () => {
+      if (room) { room.disconnect(); audioArea.innerHTML = ""; }
+      statusDiv.innerText       = "Left room.";
+      leaveBtn.disabled          = true;
+      joinBtn.disabled           = false;
+      voicebotGif.style.display  = "none";
+    };
+  </script>
+</body>
+</html>
